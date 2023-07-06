@@ -5,7 +5,7 @@ pond_pin = Pin(0, Pin.OUT)
 waterfall_pin = Pin(1, Pin.OUT)
 pond_wait_timer = Timer()
 pond_fill_timer = Timer()
-waterfll_wait_timer = Timer()
+waterfall_wait_timer = Timer()
 waterfall_purge_timer = Timer()
 
 # Configuration variables
@@ -49,7 +49,7 @@ def set_pond_fill(seconds):
 def waterfall_wait(pond_purge_timer):
     #print('waterfall off')
     waterfall_pin.off()
-    waterfll_wait_timer.init(period=waterfall_wait_millis, mode=Timer.ONE_SHOT, callback=waterfall_purge)    
+    waterfall_wait_timer.init(period=waterfall_wait_millis, mode=Timer.ONE_SHOT, callback=waterfall_purge)
 
 def waterfall_purge(pond_wait_timer):
     #print('waterfall on')
@@ -73,7 +73,7 @@ def start_timers():
 def stop_timers():
     pond_wait_timer.deinit()
     pond_fill_timer.deinit()
-    waterfll_wait_timer.deinit()
+    waterfall_wait_timer.deinit()
     waterfall_purge_timer.deinit()
 
 def restart_timers():
@@ -81,3 +81,4 @@ def restart_timers():
     start_timers()
 
 #start_timers(pond_fill_timer, waterfall_purge_timer)
+
